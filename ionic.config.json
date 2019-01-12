@@ -1,6 +1,8 @@
 {
   "name": "ionic-barcodeScanner",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular",
   "id": "7548e88e"
 }
