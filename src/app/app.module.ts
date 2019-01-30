@@ -7,15 +7,26 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DetailPage } from '../pages/detail/detail';
+import { AdherentsPage } from '../pages/adherents/adherents';
+import { AgentPage } from '../pages/agent/agent';
+import { PrestationSuccessPage } from '../pages/prestation-success/prestation-success';
+import { PrestationPage } from '../pages/prestation/prestation';
 import { DataServiceProvider } from '../providers/data-service/data-service';
- 
-import {HttpClientModule} from '@angular/common/http'; 
+
+import {HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http'
+import { PeopleServiceProvider } from '../providers/people-service/people-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage,
+    AdherentsPage,
+    AgentPage,
+    PrestationPage,
+    PrestationSuccessPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +37,12 @@ import { HttpModule } from '@angular/http'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage,
+    AdherentsPage,
+    AgentPage,
+    PrestationPage,
+    PrestationSuccessPage
   ],
   providers: [
     StatusBar,
@@ -34,7 +50,8 @@ import { HttpModule } from '@angular/http'
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     Toast,
-    DataServiceProvider
+    DataServiceProvider,
+    PeopleServiceProvider
   ]
 })
 export class AppModule {}

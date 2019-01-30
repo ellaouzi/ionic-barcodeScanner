@@ -1,24 +1,60 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <div>
-      <ion-input type="text" [(ngModel)] ="encodText"></ion-input>
-      <button ion-button block (click)= "encode()">Encode</button>
-  </div>
-  <div>
-      <button ion-button block (click)= "scan2()">Scan</button>
-<div *ngIf="scannedData.text">
-  <label>Your Bar Code is</label>
+
+
+<!--ion-header>
+  <ion-toolbar>
+    <ion-title>Prestations sociales</ion-title>
+  </ion-toolbar>
+</ion-header-->
+
+<ion-content  class="card-background-page">
+
+     <img src="assets/imgs/logo-01.png"/>
+
+
+
+      <div *ngIf="scannedData.text">
+      <label>Your Bar Code is</label>
+      <br>
+      <span>{{scannedData.text}}</span>
+    </div>
+
   <br>
-  <span>{{scannedData.text}}</span>
-</div>
 
-  </div>
 
-</ion-content>
+
+
+
+  <h2>La Fondation pour la Promotion des Œuvres <br>Sociales du Personnel du Ministère de l'Agriculture<br> et de la Pêche Maritime<br> -Département de l’Agriculture</h2>
+  <h2>مؤسسة النهوض بالأعمال الإجتماعية لفائدة العاملين<br> بوزارة الفلاحة والصيد البحري - قطاع الفلاحة </h2>
+  <br>
+  <diV>
+
+    <br>
+    <button  (click)="scan1()" ion-button outline icon-start color="light">
+
+      <img src="assets/imgs/barcode.png" style="height: 48px"/>Scanner votre carte adhérent<img src="assets/imgs/barcode.png" style="height: 48px"/>
+    </button>  <br>
+    <button  (click)="loadPrestationPage('12233')" ion-button outline icon-start color="light">
+
+      <img src="assets/imgs/barcode.png" style="height: 48px"/>Tester<img src="assets/imgs/barcode.png" style="height: 48px"/>
+    </button>
+  </diV>
+  <br><br><br>
+  <img src="assets/imgs/HandsTree.png"/>
+<br>
+
+
+ </ion-content>
+
+<!--ion-footer>
+  <ion-toolbar>
+    <p>FOS-Agri</p>
+    <ion-buttons end>
+      <button ion-button icon-end color="royal">
+        Web
+        <ion-icon name="send"  (click)="addPrestation()"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer-->
