@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Formulaire</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-avatar item-start>
+     </ion-avatar>
+    <h1>PPR: {{ppr}}</h1>
+
+  </ion-item>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+
+      <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label stacked>Bénéficiaire:</ion-label>
+        <ion-input formControlName="benificiare" type="text" placeholder="Nom Prénom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="key" item-start></ion-icon>
+        <ion-label stacked>PPR Conj:</ion-label>
+        <ion-input formControlName="pprconj" type="text" placeholder="Fonctionnaire MAMPM"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="locate" item-start></ion-icon>
+        <ion-label stacked>Choix1:</ion-label>
+         <ion-select formControlName="choix1">
+          <ion-option value="Agadir">Ifrane</ion-option>
+          <ion-option value="Ifran">Marrakech</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="locate" item-start></ion-icon>
+        <ion-label stacked>Choix2:</ion-label>
+         <ion-select formControlName="choix1">
+          <ion-option value="Agadir">Ifrane</ion-option>
+          <ion-option value="Ifran">Marrakech</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label stacked>Période 1:</ion-label>
+         <ion-select formControlName="periode1">
+             <ion-option value="Du 1 Au 6 Mars">Du 1 Au 6 Mars</ion-option>
+            <ion-option value="Du 9 Au 6 Mars">Du 1 Au 15 Mars</ion-option>
+            <ion-option value="Du 16 Au 6 Mars">Du 1 Au 22 Mars</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label stacked>Période 2:</ion-label>
+         <ion-select formControlName="periode2">
+             <ion-option value="Du 1 Au 6 Mars">Du 1 Au 6 Mars</ion-option>
+            <ion-option value="Du 9 Au 6 Mars">Du 1 Au 15 Mars</ion-option>
+            <ion-option value="Du 16 Au 6 Mars">Du 1 Au 22 Mars</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label stacked>Email:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+
+      <div formGroupName="gsmRetry">
+        <ion-item>
+          <ion-icon name="call" item-start></ion-icon>
+          <ion-label stacked>GSM:</ion-label>
+          <ion-input formControlName="gsm" type="text" placeholder="Gsm"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="calll" item-start></ion-icon>
+          <ion-label stacked>Confirmer GSM:</ion-label>
+          <ion-input formControlName="gsmConfirmation" type="text" placeholder="Confirmer gsm"></ion-input>
+        </ion-item>
+      </div>
+
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Valider</button>
+    </div>
+  </form>
+</ion-content>

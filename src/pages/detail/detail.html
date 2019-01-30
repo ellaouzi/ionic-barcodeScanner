@@ -1,0 +1,32 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Détail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    Le contenu de la carte est:
+    <p>
+         <a href="{{cartCentent.text}}">{{cartCentent.text}}</a> 
+     
+      </p>
+
+      <ion-list inset>
+          <ion-item *ngFor="let user of users">
+            <h2>{{user.nom}}</h2>
+            <p>{{user.email}}</p>
+          </ion-item>
+        </ion-list>
+</ion-content>
+
+

@@ -1,0 +1,78 @@
+<!--
+  Generated template for the AgentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>agent adherent  </ion-title>
+  </ion-navbar>
+
+</ion-header>
+{{adherent}}
+
+<ion-content padding>
+
+
+    <ion-card>
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://www.pngarts.com/files/3/Avatar-PNG-Download-Image.png">
+          </ion-avatar>
+          <h1>{{ppr}}</h1>
+          <h2>{{adherent.nom}} {{adherent.prenom}}</h2>
+          <p> <span ng-non-bindable>Naissance: {{adherent.naissance | date:"dd/MM/yyyy"}}</span></p>
+        </ion-item>
+
+        <img src="https://www.pngarts.com/files/3/Avatar-PNG-Download-Image.png">
+
+        <ion-card-content>
+          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+            <ion-note>
+              11h ago
+            </ion-note>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Username</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block>Sign In</button>
+  </div>
+
+
+</ion-content>
+
+
