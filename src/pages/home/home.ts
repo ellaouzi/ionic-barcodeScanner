@@ -48,11 +48,7 @@ export class HomePage {
     private barcodeScanner: BarcodeScanner,
     private toast: Toast,
     public dataService: DataServiceProvider) {
-     // var txt = "#div-name-1234-characteristic:561613213213";
-     // var numb = this.pprScanned.match(/\d/g);
-     //// this.pprScanned = numb.join("");
-     // alert (numb);​
-    //  this.pprScanned= this.pprScanned;//.replace(/[^0-9]/g,'');
+
       this.detailPage = DetailPage;
       this.adherentsPage = AdherentsPage;
       this.agentPage = AgentPage;
@@ -143,7 +139,7 @@ testPrestationPage() {
       } else {
         this.selectedProduct = {};
         this.productFound = false;
-        this.toast.show('Product not found', '5000', 'center').subscribe(
+        this.toast.show('Agent not found', '5000', 'center').subscribe(
           toast => {
             console.log(toast);
           }
@@ -169,7 +165,7 @@ testPrestationPage() {
       } else {
         this.selectedProduct = {};
         this.productFound = false;
-        this.toast.show('Product not found', '5000', 'center').subscribe(
+        this.toast.show('Agent not found', '5000', 'center').subscribe(
           toast => {
             console.log(toast);
           }

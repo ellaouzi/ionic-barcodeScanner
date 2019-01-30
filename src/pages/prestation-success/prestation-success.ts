@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {PrestationPage} from "../prestation/prestation";
+import { HomePage } from '../../pages/home/home';
+import {PeopleServiceProvider} from "../../providers/people-service/people-service";
 /**
  * Generated class for the PrestationSuccessPage page.
  *
@@ -14,10 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'prestation-success.html',
 })
 export class PrestationSuccessPage {
+  private homePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ) {
+    this.homePage = HomePage;
+
   }
-
+  goHome() {
+    this.navCtrl.push(this.homePage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrestationSuccessPage');
   }
