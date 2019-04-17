@@ -27,7 +27,7 @@ export class PrestationPage {
     periode1: "",
     periode2: "",
     email: "",
-    benificiare: "",
+    nombre: 1,
     pprconj: "0",
     gsm: ""
   };
@@ -69,7 +69,7 @@ export class PrestationPage {
     this.prestationDto.periode1 = this.myForm.value.periode1;
     this.prestationDto.choix2 = this.myForm.value.choix2;
     this.prestationDto.periode2 = this.myForm.value.periode2;
-    this.prestationDto.benificiare = this.myForm.value.benificiare;
+    this.prestationDto.nombre = this.myForm.value.nombre;
     this.prestationDto.pprconj = this.myForm.value.pprconj;
     this.prestationDto.email = this.myForm.value.email;
     this.prestationDto.gsm = this.myForm.value.gsm;
@@ -79,10 +79,13 @@ export class PrestationPage {
 
     const req = this.http.post(REST_SERVICE_URI, this.prestationDto)
       .subscribe(
-        res => {
+        res =>
+        {
           console.log(res);
-        },
-        err => {
+        }
+        ,
+        err =>
+        {
           console.log("Error occured");
         }
       );
@@ -96,7 +99,7 @@ export class PrestationPage {
 
   private createMyForm() {
     return this.formBuilder.group({
-      benificiare: ['', Validators.required],
+      nombre: ['', Validators.required],
       pprconj: ['', Validators.required],
       choix1: ['', Validators.required],
       choix2: ['', Validators.required],
@@ -104,7 +107,6 @@ export class PrestationPage {
       periode2: ['', Validators.required],
       email: ['', Validators.required],
       gsm: ['', Validators.required],
-
     });
   }
 

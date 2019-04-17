@@ -14,11 +14,7 @@
   <form [formGroup]="myForm">
     <ion-list>
 
-      <ion-item>
-        <ion-icon name="person" item-start></ion-icon>
-        <ion-label stacked>Bénéficiaire:</ion-label>
-        <ion-input formControlName="benificiare" type="text" placeholder="Nom Prénom"></ion-input>
-      </ion-item>
+
       <ion-item>
         <ion-icon name="key" item-start></ion-icon>
         <ion-label stacked>PPR Conj:</ion-label>
@@ -61,11 +57,10 @@
           <ion-option value="Du 16 Au 6 Mars">Du 1 Au 22 Mars</ion-option>
         </ion-select>
       </ion-item>
-
       <ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-        <ion-label stacked>Email:</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label stacked>Nombre de bénéficiaires:</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder=""></ion-input>
       </ion-item>
 
       <ion-item>
@@ -74,7 +69,11 @@
         <ion-input formControlName="gsm" type="text" placeholder="GSM"></ion-input>
       </ion-item>
 
-
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label stacked>Email:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
 
     </ion-list>
     <div padding>

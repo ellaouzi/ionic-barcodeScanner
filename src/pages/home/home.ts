@@ -36,7 +36,7 @@ export class HomePage {
   encodedData: any = {};
   scannedData: any = {};
   products: any[] = [];
-  pprScanned:String="[ PPR : 6637373][Ajd,jjjd]";
+  pprScanned:String="[ PPR : 6637373][Dahdouh Souka,jjjd]";
 
   selectedProduct: any;
   productFound: boolean = false;
@@ -133,8 +133,8 @@ testPrestationPage() {
     this.scanner.scan(this.options).then((data) => {
       this.scannedData = data;
       //===========================/ME
-      if (this.scannedData !== undefined) {
-
+      if (this.scannedData !== undefined)
+      {
         this.loadPrestationPage(data);
       } else {
         this.selectedProduct = {};
