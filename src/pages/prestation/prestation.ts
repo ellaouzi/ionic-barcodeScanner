@@ -29,7 +29,8 @@ export class PrestationPage {
     email: "",
     nombre: 1,
     pprconj: "0",
-    gsm: ""
+    gsm: "",
+    prestation: ""
   };
 
   private prestationSuccessPage;
@@ -78,7 +79,8 @@ export class PrestationPage {
     this.prestationDto.email = this.myForm.value.email;
     this.prestationDto.gsm = this.myForm.value.gsm;
     this.prestationDto.codAg = '2333';
-    //this.prestationDto.prestRef = '';// this.myForm.value.gsm;
+    this.prestationDto.prestation= 'http://31.220.54.142:8080/univers-demande/prestations/29509' ;
+
     console.log(JSON.stringify(this.prestationDto));
 
     var REST_SERVICE_URI = 'http://31.220.54.142:8080/univers-demande/demandes';

@@ -90,7 +90,6 @@ testPrestationPage() {
     })
   }
   scanAdherentCardStub() {
-
         this.loadPrestationPage('2772662');
   }
 
