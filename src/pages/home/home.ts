@@ -12,9 +12,6 @@ import {
   Toast
 } from '@ionic-native/toast';
 import {
-  DataServiceProvider
-} from '../../providers/data-service/data-service';
-import {
   DetailPage
 } from '../../pages/detail/detail'
 import { AdherentsPage } from '../adherents/adherents';
@@ -31,73 +28,16 @@ export class HomePage {
   private adherentsPage;
   private agentPage;
   private prestationPage;
-  options: BarcodeScannerOptions;
-  encodText: string = "";
-  encodedData: any = {};
-  scannedData: any = {};
-  products: any[] = [];
-  pprScanned:String="[ PPR : 6637373][Dahdouh Souka,jjjd]";
-
-  selectedProduct: any;
-  productFound: boolean = false;
-  test = "test";
-
+  private options: BarcodeScannerOptions;
+  private scannedData: any = {};
 
   constructor(public navCtrl: NavController,
     public scanner: BarcodeScanner,
-    private barcodeScanner: BarcodeScanner,
-    private toast: Toast,
-    public dataService: DataServiceProvider) {
-
+    private toast: Toast) {
       this.detailPage = DetailPage;
       this.adherentsPage = AdherentsPage;
       this.agentPage = AgentPage;
       this.prestationPage = PrestationPage;
-
-    this.dataService.getProducts()
-      .subscribe((response) => {
-        this.products = response
-        console.log(this.products);
-      });
-  }
-
-
-
-  scan2() {
-    this.options = {
-      prompt: 'Scanner votre carte adhérent'
-    };
-    this.scanner.scan(this.options).then((data) => {
-      this.scannedData = data;
-      //===========================/ME
-      if (this.scannedData !== undefined) {
-
-          this.loadDetail(data);
-      } else {
-        this.selectedProduct = {};
-        this.productFound = false;
-        this.toast.show('Product not found', '5000', 'center').subscribe(
-          toast => {
-            console.log(toast);
-          }
-        );
-      }
-      //===========================/ME
-
-    }, (err) => {
-      console.log('Error', err);
-    })
-  }
-
-
-  encode() {
-    this.scanner.encode(this.scanner.Encode.TEXT_TYPE, this.encodText).then((data) => {
-        this.encodedData = data;
-      },
-      (err) => {
-        console.log('Error', err);
-
-      })
   }
 
   loadDetail(ppr) {
@@ -126,7 +66,7 @@ testPrestationPage() {
     this.navCtrl.push(this.prestationPage);
   }
 
-  scan1() {
+  scanAdherentCard() {
     this.options = {
       prompt: 'Scanner votre carte adhérent'
     };
@@ -137,9 +77,7 @@ testPrestationPage() {
       {
         this.loadPrestationPage(data);
       } else {
-        this.selectedProduct = {};
-        this.productFound = false;
-        this.toast.show('Agent not found', '5000', 'center').subscribe(
+          this.toast.show('Agent not found', '5000', 'center').subscribe(
           toast => {
             console.log(toast);
           }
@@ -151,30 +89,10 @@ testPrestationPage() {
       console.log('Error', err);
     })
   }
+  scanAdherentCardStub() {
 
-  scan3() {
-    this.options = {
-      prompt: 'Scanner votre carte adhérent'
-    };
-    this.scanner.scan(this.options).then((data) => {
-      this.scannedData = data;
-      //===========================/ME
-      if (this.scannedData !== undefined) {
-
-          this.loadAgentPage(data);
-      } else {
-        this.selectedProduct = {};
-        this.productFound = false;
-        this.toast.show('Agent not found', '5000', 'center').subscribe(
-          toast => {
-            console.log(toast);
-          }
-        );
-      }
-      //===========================/ME
-
-    }, (err) => {
-      console.log('Error', err);
-    })
+        this.loadPrestationPage('2772662');
   }
+
+
 }

@@ -15,18 +15,11 @@
 
 <ion-content padding>
 
-    Le contenu de la carte est:
-    <p>
-         <a href="{{cartCentent.text}}">{{cartCentent.text}}</a> 
-     
-      </p>
+  Le contenu de la carte est:
+  <p>
+    <a href="{{cardInfo.text}}">{{cardInfo.text}}</a>
+  </p>
 
-      <ion-list inset>
-          <ion-item *ngFor="let user of users">
-            <h2>{{user.nom}}</h2>
-            <p>{{user.email}}</p>
-          </ion-item>
-        </ion-list>
 </ion-content>
 
 

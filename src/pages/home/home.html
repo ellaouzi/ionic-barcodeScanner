@@ -1,40 +1,33 @@
-
-
-
 <!--ion-header>
   <ion-toolbar>
     <ion-title>Prestations sociales</ion-title>
   </ion-toolbar>
 </ion-header-->
 
-<ion-content  class="card-background-page">
+<ion-content class="card-background-page">
 
-     <img src="assets/imgs/logo-01.png"/>
-
-
-
-      <div *ngIf="scannedData.text">
-      <label>Your Bar Code is</label>
-      <br>
-      <span>{{scannedData.text}}</span>
-    </div>
+  <img src="assets/imgs/logo-01.png"/>
+  <div *ngIf="scannedData.text">
+    <label>Your Bar Code is</label>
+    <br>
+    <span>{{scannedData.text}}</span>
+  </div>
 
   <br>
 
 
-
-
-
-  <h2>La Fondation pour la Promotion des Œuvres <br>Sociales du Personnel du Ministère de l'Agriculture<br> et de la Pêche Maritime<br> -Département de l’Agriculture</h2>
+  <h2>La Fondation pour la Promotion des Œuvres <br>Sociales du Personnel du Ministère de l'Agriculture<br> et de la
+    Pêche Maritime<br> -Département de l’Agriculture</h2>
   <h2>مؤسسة النهوض بالأعمال الإجتماعية لفائدة العاملين<br> بوزارة الفلاحة والصيد البحري - قطاع الفلاحة </h2>
   <br>
   <diV>
 
     <br>
-    <button  (click)="scan1()" ion-button outline icon-start color="light">
-
-      <img src="assets/imgs/barcode.png" style="height: 48px"/>Scanner votre carte adhérent<img src="assets/imgs/barcode.png" style="height: 48px"/>
-    </button>  <br>
+    <button (click)="scanAdherentCardStub()" ion-button outline icon-start color="light">
+      <img src="assets/imgs/barcode.png" style="height: 48px"/>Scanner votre carte adhérent<img
+      src="assets/imgs/barcode.png" style="height: 48px"/>
+    </button>
+    <br>
     <!--
 
     <button  (click)="loadPrestationPage('12233')" ion-button outline icon-start color="light">
@@ -45,10 +38,10 @@
   </diV>
   <br><br><br>
   <img src="assets/imgs/HandsTree.png"/>
-<br>
+  <br>
 
 
- </ion-content>
+</ion-content>
 
 <!--ion-footer>
   <ion-toolbar>

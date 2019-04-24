@@ -35,17 +35,21 @@ export class PrestationPage {
   private prestationSuccessPage;
   private homePage;
 
-  constructor(public http: Http, public navCtrl: NavController, public peopleData: PeopleServiceProvider, public navParams: NavParams, public formBuilder: FormBuilder, public loadingCtr: LoadingController) {
+  constructor(public http: Http,
+              public navCtrl: NavController,
+              public peopleData: PeopleServiceProvider,
+              public navParams: NavParams,
+              public formBuilder: FormBuilder,
+              public loadingCtr: LoadingController) {
     this.myForm = this.createMyForm();
     this.homePage = HomePage;
     this.prestationSuccessPage = PrestationSuccessPage;
-    //this.ppr='525552';
-
     this.ppr = navParams.data.ppr.text;
-
     var pprScaned = this.ppr;
-    var numb = pprScaned.match(/\d/g);
-    this.ppr = numb.join("");
+
+    /*ME var numb = pprScaned.match(/\d/g);
+   //ME this.ppr = numb.join("");
+    this.prestationDto.codAg = this.ppr;
     peopleData.getAdherentapi(this.ppr).subscribe(adherent => {
       let loader = this.loadingCtr.create({
         content: 'Loading people'
@@ -54,17 +58,17 @@ export class PrestationPage {
       console.log('adherent', adherent);
       this.adherent = adherent;
       loader.dismiss();
-    });
-
-
-    this.prestationDto.codAg = this.ppr;
-
+    });*/
   }
+  // create one demande (static).
+  // get list of prestation.
+  // get demande schema:
+  //  * univers API deliver demande schema.
+  // create dynamic demande based on retrieved schema.
 
 
   saveData() {
     console.log(this.myForm.value);
-
     this.prestationDto.choix1 = this.myForm.value.choix1;
     this.prestationDto.periode1 = this.myForm.value.periode1;
     this.prestationDto.choix2 = this.myForm.value.choix2;
@@ -73,19 +77,19 @@ export class PrestationPage {
     this.prestationDto.pprconj = this.myForm.value.pprconj;
     this.prestationDto.email = this.myForm.value.email;
     this.prestationDto.gsm = this.myForm.value.gsm;
-    var json = JSON.stringify(this.prestationDto)
-    console.log(json);
-     var REST_SERVICE_URI = 'http://31.220.54.142:8080/fosagri/relais/prestation/';
+    this.prestationDto.codAg = '2333';
+    //this.prestationDto.prestRef = '';// this.myForm.value.gsm;
+    console.log(JSON.stringify(this.prestationDto));
+
+    var REST_SERVICE_URI = 'http://31.220.54.142:8080/univers-demande/demandes';
 
     const req = this.http.post(REST_SERVICE_URI, this.prestationDto)
       .subscribe(
-        res =>
-        {
+        res => {
           console.log(res);
         }
         ,
-        err =>
-        {
+        err => {
           console.log("Error occured");
         }
       );
@@ -110,7 +114,7 @@ export class PrestationPage {
     });
   }
 
-  private go_Home() {
+  private goHome() {
     this.navCtrl.push(this.homePage);
   }
 }

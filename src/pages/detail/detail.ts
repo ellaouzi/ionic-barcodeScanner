@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the DetailPage page.
@@ -14,12 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-  public   cartCentent: any = {};
+  public cardInfo: any = {};
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-let ppr= navParams.data.ppr;
-this.cartCentent=ppr;
+    let ppr = navParams.data.ppr;
+    this.cardInfo = ppr;
   }
 
   ionViewDidLoad() {
