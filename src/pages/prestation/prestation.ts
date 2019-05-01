@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
-
+import {IonicPage, NavController} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {Http} from '@angular/http';
-import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map'
 import {PeopleServiceProvider} from "../../providers/people-service/people-service";
 import {PrestationSuccessPage} from '../prestation-success/prestation-success';
@@ -17,6 +14,9 @@ import {HomePage} from '../../pages/home/home';
 })
 export class PrestationPage {
   public ppr: string = "";
+  public prestations;
+  public attachedFields;
+
   public adherent: String = "";
   myForm: FormGroup;
   prestationDto = {
@@ -36,37 +36,21 @@ export class PrestationPage {
   private prestationSuccessPage;
   private homePage;
 
-  constructor(public http: Http,
+  constructor(public http: HttpClient,
               public navCtrl: NavController,
               public peopleData: PeopleServiceProvider,
-              public navParams: NavParams,
               public formBuilder: FormBuilder,
-              public loadingCtr: LoadingController) {
+  ) {
     this.myForm = this.createMyForm();
     this.homePage = HomePage;
     this.prestationSuccessPage = PrestationSuccessPage;
-    this.ppr = navParams.data.ppr.text;
-    var pprScaned = this.ppr;
 
-    /*ME var numb = pprScaned.match(/\d/g);
-   //ME this.ppr = numb.join("");
-    this.prestationDto.codAg = this.ppr;
-    peopleData.getAdherentapi(this.ppr).subscribe(adherent => {
-      let loader = this.loadingCtr.create({
-        content: 'Loading people'
-      });
-      loader.present();
-      console.log('adherent', adherent);
-      this.adherent = adherent;
-      loader.dismiss();
-    });*/
+    this.peopleData.getPrestations().subscribe(
+      data => {
+        this.prestations = data["_embedded"]["prestationrefs"]
+      }
+    );
   }
-  // create one demande (static).
-  // get list of prestation.
-  // get demande schema:
-  //  * univers API deliver demande schema.
-  // create dynamic demande based on retrieved schema.
-
 
   saveData() {
     console.log(this.myForm.value);
@@ -79,13 +63,11 @@ export class PrestationPage {
     this.prestationDto.email = this.myForm.value.email;
     this.prestationDto.gsm = this.myForm.value.gsm;
     this.prestationDto.codAg = '2333';
-    this.prestationDto.prestation= 'http://31.220.54.142:8080/univers-demande/prestations/29509' ;
-
+    this.prestationDto.prestation = 'http://31.220.54.142:8080/univers-demande/prestations/29509';
     console.log(JSON.stringify(this.prestationDto));
 
     var REST_SERVICE_URI = 'http://31.220.54.142:8080/univers-demande/demandes';
-
-    const req = this.http.post(REST_SERVICE_URI, this.prestationDto)
+    this.http.post(REST_SERVICE_URI, this.prestationDto)
       .subscribe(
         res => {
           console.log(res);
@@ -96,7 +78,6 @@ export class PrestationPage {
         }
       );
     this.navCtrl.push(this.prestationSuccessPage);
-
   }
 
   ionViewDidLoad() {
@@ -116,7 +97,7 @@ export class PrestationPage {
     });
   }
 
-  private goHome() {
+  goHome() {
     this.navCtrl.push(this.homePage);
   }
 }

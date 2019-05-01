@@ -19,15 +19,6 @@ export class AgentPage {
      var pprScaned= this.ppr;
      var numb = pprScaned.match(/\d/g);
      this.ppr = numb.join("");
-    peopleData.getAdherentapi(this.ppr).subscribe(adherent => {
-      let loader = this.loadingCtr.create({
-        content: 'Loading people'
-      });
-      loader.present();
-      console.log('adherent', adherent);
-      this.adherent = adherent;
-      loader.dismiss();
-    });
   }
 
   ionViewDidLoad() {

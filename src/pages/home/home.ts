@@ -1,22 +1,11 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  NavController
-} from 'ionic-angular';
-import {
-  BarcodeScanner,
-  BarcodeScannerOptions
-} from '@ionic-native/barcode-scanner';
-import {
-  Toast
-} from '@ionic-native/toast';
-import {
-  DetailPage
-} from '../../pages/detail/detail'
-import { AdherentsPage } from '../adherents/adherents';
-import { AgentPage } from '../agent/agent';
-import { PrestationPage } from '../prestation/prestation';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scanner';
+import {Toast} from '@ionic-native/toast';
+import {DetailPage} from '../../pages/detail/detail'
+import {AdherentsPage} from '../adherents/adherents';
+import {AgentPage} from '../agent/agent';
+import {PrestationPage} from '../prestation/prestation';
 
 @Component({
   selector: 'page-home',

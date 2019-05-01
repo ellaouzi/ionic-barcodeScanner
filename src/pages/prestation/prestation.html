@@ -5,10 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+
+  <ul>
+    <li *ngFor="let f of attachedFields">
+      {{ f.label }}
+    </li>
+  </ul>
+   <ion-item>
     <ion-avatar item-start>
     </ion-avatar>
     <h1>PPR: {{ppr}}</h1>
+
+    <ul>
+      <li *ngFor="let p of prestations">
+        {{ p.label }}
+      </li>
+    </ul>
 
   </ion-item>
   <form [formGroup]="myForm">

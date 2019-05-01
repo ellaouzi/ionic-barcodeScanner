@@ -12,7 +12,7 @@ import {
 import {
   LoadingController
 } from 'ionic-angular';
- 
+
 
 @IonicPage()
 @Component({
@@ -25,28 +25,20 @@ export class AdherentsPage {
   private adherentsPage;
 
   public people = new Array();
-  public user={};
-  public adherents={};
+  public user = {};
+  public adherents = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public peopleData: PeopleServiceProvider, public loadingCtr: LoadingController) {
-    this.adherentsPage= AdherentsPage;
-    let ppr= navParams.data.ppr;
+    this.adherentsPage = AdherentsPage;
     let loader = this.loadingCtr.create({
       content: 'Loading people'
     });
     loader.present();
-
-   this.adherents= peopleData.getAdherentapi(ppr) ;
-
-   console.log("=========================================") ;
-   console.log(this.adherents) ;
-
-    peopleData.getPeople().subscribe(people => {
-      console.log('people', people);
-      loader.dismiss();
-
-      this.people = people;
-    });
+    console.log("=========================================");
+    console.log(this.adherents);
+    loader.dismiss();
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdherentsPage');
   }
