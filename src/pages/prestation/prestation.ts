@@ -55,26 +55,19 @@ export class PrestationPage {
       },
       undefined,
       () => {
-        console.log('*************************2');
-        this.form= this.convertFieldsToFormGroup();
+        this.form = this.convertFieldsToFormGroup();
         console.log(this.form);
-        this.navCtrl.push(this.detailPage, {form: this.form,attachedFields: this.attachedFields});
+        this.navCtrl.push(this.detailPage, {form: this.form, attachedFields: this.attachedFields});
       }
     );
-
-
   }
-
 
   private convertFieldsToFormGroup() {
     let group: any = {};
     this.attachedFields.forEach(field => {
-     // group[field.colonne] = field.required ? new FormControl(field.inputvalue || '', Validators.required)
-    //    : new FormControl(field.inputvalue || '');
-       group[field.colonne]= new FormControl('');
-
+      group[field.colonne] = field.required ? new FormControl(field.inputvalue || '', Validators.required)
+        : new FormControl(field.inputvalue || '');
     });
-    console.log(group);
     return new FormGroup(group);
   }
 
