@@ -15,10 +15,18 @@
 
 <ion-content padding>
 
-  Le contenu de la carte est:
-  <p>
-    <a href="{{cardInfo.text}}">{{cardInfo.text}}</a>
-  </p>
+
+
+  <form [formGroup]="form">
+    <ion-item *ngFor="let pr of attachedFields">
+
+    <label>
+      {{pr.label}}:
+      <input type="text" formControlName={{pr.colonne}}>
+    </label>
+    </ion-item>
+
+  </form>
 
 </ion-content>
 

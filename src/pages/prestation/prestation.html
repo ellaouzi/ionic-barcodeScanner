@@ -1,99 +1,24 @@
+<script src="prestation.ts"></script>
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Formulaire</ion-title>
+    <ion-title>Liste des prestations</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <!-- List of Sliding Items -->
+  <ion-list>
+   <ion-item *ngFor="let pr of prestations">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/logoSolidaire.png">
+      </ion-thumbnail>
+      <h2>{{ pr.label }}</h2>
+       <p> Du: {{ pr.dateDu |  date: 'dd/MM/yyyy' }} • Au: {{ pr.dateAu|  date: 'dd/MM/yyyy' }}</p>
+      <button ion-button clear item-end>Détail</button>
+      <button (click)="selectPresation(pr)" ion-button  item-end  color="light">Détail</button>
 
-  <ul>
-    <li *ngFor="let f of attachedFields">
-      {{ f.label }}
-    </li>
-  </ul>
-   <ion-item>
-    <ion-avatar item-start>
-    </ion-avatar>
-    <h1>PPR: {{ppr}}</h1>
-
-    <ul>
-      <li *ngFor="let p of prestations">
-        {{ p.label }}
-      </li>
-    </ul>
-
-  </ion-item>
-  <form [formGroup]="myForm">
-    <ion-list>
+    </ion-item>
+  </ion-list>
 
 
-      <ion-item>
-        <ion-icon name="key" item-start></ion-icon>
-        <ion-label stacked>PPR Conj:</ion-label>
-        <ion-input formControlName="pprconj" type="text" placeholder="Fonctionnaire MAMPM"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="locate" item-start></ion-icon>
-        <ion-label stacked>Choix1:</ion-label>
-        <ion-select formControlName="choix1">
-          <ion-option value="Ifrane">Ifrane</ion-option>
-          <ion-option value="Marrakech">Marrakech</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="locate" item-start></ion-icon>
-        <ion-label stacked>Choix2:</ion-label>
-        <ion-select formControlName="choix2">
-          <ion-option value="Ifrane">Ifrane</ion-option>
-          <ion-option value="Marrakech">Marrakech</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="calendar" item-start></ion-icon>
-        <ion-label stacked>Période 1:</ion-label>
-        <ion-select formControlName="periode1">
-          <ion-option value="Du 1 Au 6 Mars">Du 1 Au 6 Mars</ion-option>
-          <ion-option value="Du 9 Au 6 Mars">Du 1 Au 15 Mars</ion-option>
-          <ion-option value="Du 16 Au 6 Mars">Du 1 Au 22 Mars</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="calendar" item-start></ion-icon>
-        <ion-label stacked>Période 2:</ion-label>
-        <ion-select formControlName="periode2">
-          <ion-option value="Du 1 Au 6 Mars">Du 1 Au 6 Mars</ion-option>
-          <ion-option value="Du 9 Au 6 Mars">Du 1 Au 15 Mars</ion-option>
-          <ion-option value="Du 16 Au 6 Mars">Du 1 Au 22 Mars</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="person" item-start></ion-icon>
-        <ion-label stacked>Nombre de bénéficiaires:</ion-label>
-        <ion-input formControlName="nombre" type="text" placeholder=""></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="call" item-start></ion-icon>
-        <ion-label stacked>Gsm:</ion-label>
-        <ion-input formControlName="gsm" type="text" placeholder="GSM"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-        <ion-label stacked>Email:</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
-      </ion-item>
-
-    </ion-list>
-    <div padding>
-      <button ion-button block (click)="saveData()"  type="submit" [disabled]="!myForm.valid">Valider</button>
-<br>
-    <button  (click)="goHome()" ion-button block icon-start color="light">
-      Retour
-    </button>
-    </div>
-  </form>
 </ion-content>
